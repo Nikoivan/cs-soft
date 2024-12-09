@@ -6,7 +6,7 @@ import { tableSlice } from './slices/tableSlice';
 const sagaMiddleware = createSagaMiddleware();
 const rootReducer = combineSlices(tableSlice);
 const store = configureStore({
-  reducer: { rootReducer },
+  reducer: rootReducer ,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware().concat(sagaMiddleware)
 });

@@ -1,51 +1,52 @@
-import { v4 } from 'uuid';
+import {v4} from 'uuid';
 
 import {
-  Cell,
-  Column,
-  ColumnData,
-  DataTypes
+		Cell,
+		Column,
+		ColumnData,
+		DataTypes
 } from '../slices/tableSlice.types';
 
 type CellData = {
-  cellsCount: number;
-  type: DataTypes;
-  columnId: string;
+		cellsCount: number;
+		type: DataTypes;
+		columnId: string;
 };
 
-function createCells({ cellsCount, type, columnId }: CellData): Cell[] {
-  let cells: Cell[] = [];
+export function createCells({cellsCount, type, columnId}: CellData): Cell[] {
+		const cells: Cell[] = [];
 
-  for (let i = 0; i < cellsCount; i++) {
-    cells.push({
-      content: 'Данные',
-      id: v4(),
-      type,
-      columnId,
-      highLighted: false
-    });
-  }
+		for (let i = 0; i < cellsCount; i++) {
+				cells.push({
+						content: 'Данные',
+						id: v4(),
+						type,
+						columnId,
+						highLighted: false
+				});
+		}
 
-  return cells;
+		return cells;
 }
 
 export function createColumns({
-  columnsCount,
-  cellsCount,
-  type
-}: ColumnData): Column[] {
-  let columns: Column[] = [];
+																	columnsCount,
+																	cellsCount,
+																	type
+															}: ColumnData): Column[] {
+		const columns: Column[] = [];
 
-  for (let i = 0; i < columnsCount; i++) {
-    const columnId = v4();
+		for (let i = 0; i < columnsCount; i++) {
+				const columnId = v4();
 
-    const column = {
-      id: v4(),
-      title: 'Столбец',
-      type: DataTypes,
-      cells: createCells({ cellsCount, type, columnId })
-    };
-  }
+				const column = {
+						id: columnId,
+						type,
+						cells: createCells({cellsCount, type, columnId})
+				};
 
-  return columns;
+				columns.push(column);
+		}
+
+		return columns;
 }

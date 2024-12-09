@@ -1,4 +1,44 @@
 .CsSoft {
   padding: 50px 65px;
   background: #F2F2F7;
+
+  &-Line {
+    padding: 5px;
+    border-bottom: 1px solid #8E8E93;
+    font-size: 20px;
+    font-weight: 500;
+
+    & input {
+      border: none;
+      outline: none;
+      background: none;
+      font-size: 20px;
+      font-weight: 500;
+
+      & input::placeholder {
+        color: #000;
+        font-weight: 500;
+      }
+    }
+  }
+
+  &-ColumnsList {
+    display: flex;
+    list-style: none;
+  }
+
+  &-ColumnTitle {
+    cursor: pointer;
+    color: #8E8E93
+  }
+
+  & button {
+    font-size: 26px;
+    padding: 5px 15px;
+    border-radius: 5px;
+  }
+
+  & button:hover {
+    cursor: pointer;
+  }
 }
